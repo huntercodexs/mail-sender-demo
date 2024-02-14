@@ -27,3 +27,5 @@ replay_pid*
 /mail-sender-demo.iml
 /.idea/
 /target/
+
+application.properties

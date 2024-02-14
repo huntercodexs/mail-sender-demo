@@ -45,22 +45,22 @@ The simple project to send e-mails using Java
 
 <pre>
 # OUTLOOK SMTP MAIL SERVER
-mail-sender.to={RECEPTOR-USERNAME}@gmail.com
-mail-sender.from={OUTLOOK-USERNAME}@outlook.com
-spring.mail.host=smtp-mail.outlook.com
-spring.mail.port=587
-spring.mail.user={OUTLOOK-USERNAME}@outlook.com
-spring.mail.username={OUTLOOK-USERNAME}@outlook.com
-spring.mail.password={APP-PASSWORD}
-spring.mail.properties.mail.smtp.ssl=true
-spring.mail.properties.mail.smtp.auth=true
-spring.mail.properties.mail.smtp.starttls.enable=true
-spring.mail.properties.mail.smtp.starttls.required=true
-spring.mail.properties.mail.smtp.connectiontimeout=5000
-spring.mail.properties.mail.smtp.timeout=5000
-spring.mail.properties.mail.smtp.writetimeout=5000
-spring.mail.properties.mail.smtp.socketFactory.port=587
-spring.mail.properties.mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
+#mail-sender.to={RECEPTOR-USERNAME}@gmail.com
+#mail-sender.from={OUTLOOK-USERNAME}@outlook.com
+#spring.mail.host=smtp-mail.outlook.com
+#spring.mail.port=587
+#spring.mail.user={OUTLOOK-USERNAME}@outlook.com
+#spring.mail.username={OUTLOOK-USERNAME}@outlook.com
+#spring.mail.password={APP-PASSWORD}
+#spring.mail.properties.mail.smtp.ssl=true
+#spring.mail.properties.mail.smtp.auth=true
+#spring.mail.properties.mail.smtp.starttls.enable=true
+#spring.mail.properties.mail.smtp.starttls.required=true
+#spring.mail.properties.mail.smtp.connectiontimeout=5000
+#spring.mail.properties.mail.smtp.timeout=5000
+#spring.mail.properties.mail.smtp.writetimeout=5000
+#spring.mail.properties.mail.smtp.socketFactory.port=587
+#spring.mail.properties.mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
 </pre>
 
 - Office 365

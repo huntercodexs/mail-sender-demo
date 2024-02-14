@@ -49,7 +49,7 @@ public class MailSenderController extends MailService {
 					"MAIL SENDER ATTACH - Test",
 					"Its only a test",
 					"attach.txt",
-					fileToDataSource("./src/test/resources/", "attach.txt"));
+					fileToDataSource("./src/main/resources/", "attach.txt"));
 			return "DONE";
 		} catch (RuntimeException re) {
 			System.out.println(re.getMessage());
