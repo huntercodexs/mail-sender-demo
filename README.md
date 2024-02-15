@@ -110,6 +110,20 @@ The simple project to send e-mails using Java
 #spring.mail.properties.mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
 </pre>
 
+- AWS SES
+
+<pre>
+spring.mail.host=email-smtp.us-east-1.amazonaws.com
+spring.mail.port=465
+spring.mail.username={AWS-USERNAME-MAIL}
+spring.mail.password={PASSWORD}
+spring.mail.properties.mail.smtp.starttls.enable=true
+spring.mail.properties.mail.smtp.starttls.required=true
+spring.mail.properties.mail.smtp.ssl.enavle=true
+spring.mail.properties.mail.protocol=smtps
+spring.mail.properties.mail.smtps.auth=true
+</pre>
+
 # How to use
 
 - Set up the configurations [application.properties](src/main/resources/application.properties)
@@ -128,3 +142,5 @@ The simple project to send e-mails using Java
     - GET http://localhost:31303/mail-sender-demo/api/send-attach/png
     - GET http://localhost:31303/mail-sender-demo/api/send-attach/txt
     - GET http://localhost:31303/mail-sender-demo/api/send-attach/xls
+  - With inline images
+    - GET http://localhost:31303/mail-sender-demo/api/send-inline

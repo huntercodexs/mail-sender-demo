@@ -26,7 +26,7 @@ public class MailSenderController extends MailService {
 					from,
 					emailTo,
 					"MAIL SENDER - Test",
-					"Its only a test")) {
+					"It's only a test")) {
 
 				return "DONE: E-mail sent successful";
 
@@ -49,7 +49,7 @@ public class MailSenderController extends MailService {
 					from,
 					emailTo,
 					"MAIL SENDER ATTACH - Test",
-					"Its only a test",
+					"It's only a test",
 					"attach."+type,
 					"./src/main/resources/attach."+type)) {
 
@@ -57,6 +57,29 @@ public class MailSenderController extends MailService {
 
 			} else {
 				return "ERROR: E-Mail Attach not sent";
+			}
+
+		} catch (RuntimeException re) {
+			System.out.println(re.getMessage());
+			return "ERROR: Exception";
+		}
+	}
+
+	@GetMapping(path = "/send-inline")
+	@ResponseBody
+	public String inline() throws IOException {
+		try {
+			if (mailSenderDemo.sendMailInline(
+					from,
+					emailTo,
+					"MAIL SENDER INLINE - Test",
+					"It's only a test",
+					"./src/main/resources/attach.png")) {
+
+				return "DONE: E-mail sent successful";
+
+			} else {
+				return "ERROR: E-Mail Inline not sent";
 			}
 
 		} catch (RuntimeException re) {

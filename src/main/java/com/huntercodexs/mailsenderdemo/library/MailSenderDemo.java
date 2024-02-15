@@ -70,4 +70,31 @@ public class MailSenderDemo {
         }
     }
 
+    public boolean sendMailInline(
+            String from,
+            String to,
+            String subject,
+            String content,
+            String inlineImage
+    ) {
+        try {
+            MimeMessage message = javaMailSender.createMimeMessage();
+            message.setFrom(from);
+
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+            helper.setTo(to);
+            helper.setSubject(subject);
+            helper.setText("<html><body><h1>"+content+"</h1><img src='cid:contentID-0001'></body></html>", true);
+
+            FileSystemResource resource = new FileSystemResource(new File(inlineImage));
+            helper.addInline("contentID-0001", resource);
+
+            javaMailSender.send(message);
+            return true;
+        } catch (MessagingException me) {
+            log.error("SEND MAIL ATTACH ERROR");
+            log.error(me.getMessage());
+            return false;
+        }
+    }
 }
