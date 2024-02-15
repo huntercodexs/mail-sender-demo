@@ -120,4 +120,11 @@ The simple project to send e-mails using Java
   - Without attachment file 
     - GET http://localhost:31303/mail-sender-demo/api/send
   - With attachment file 
-    - GET http://localhost:31303/mail-sender-demo/api/send-attach
+    - GET http://localhost:31303/mail-sender-demo/api/send-attach/conf
+    - GET http://localhost:31303/mail-sender-demo/api/send-attach/csv
+    - GET http://localhost:31303/mail-sender-demo/api/send-attach/doc
+    - GET http://localhost:31303/mail-sender-demo/api/send-attach/jpg
+    - GET http://localhost:31303/mail-sender-demo/api/send-attach/pdf
+    - GET http://localhost:31303/mail-sender-demo/api/send-attach/png
+    - GET http://localhost:31303/mail-sender-demo/api/send-attach/txt
+    - GET http://localhost:31303/mail-sender-demo/api/send-attach/xls

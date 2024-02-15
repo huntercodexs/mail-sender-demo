@@ -3,14 +3,9 @@ package com.huntercodexs.mailsenderdemo.controller;
 import com.huntercodexs.mailsenderdemo.service.MailService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-
-import static com.huntercodexs.mailsenderdemo.service.Help4DevsFileHandlerService.fileToDataSource;
 
 @Controller
 @CrossOrigin(origins = "*")
@@ -27,33 +22,46 @@ public class MailSenderController extends MailService {
 	@ResponseBody
 	public String send() {
 		try {
-			mailSenderDemo.sendMail(
+			if (mailSenderDemo.sendMail(
 					from,
 					emailTo,
 					"MAIL SENDER - Test",
-					"Its only a test");
-			return "DONE";
+					"Its only a test")) {
+
+				return "DONE: E-mail sent successful";
+
+			} else {
+				return "ERROR: E-Mail not sent";
+			}
+
 		} catch (RuntimeException re) {
 			System.out.println(re.getMessage());
-			return "ERROR";
+			return "ERROR: Exception";
 		}
 	}
 
-	@GetMapping(path = "/send-attach")
+	@GetMapping(path = "/send-attach/{type}")
 	@ResponseBody
-	public String attach() throws IOException {
+	public String attach(@PathVariable String type) throws IOException {
 		try {
-			mailSenderDemo.sendMailAttached(
+			System.out.println("Attachment type: " + type);
+			if (mailSenderDemo.sendMailAttached(
 					from,
 					emailTo,
 					"MAIL SENDER ATTACH - Test",
 					"Its only a test",
-					"attach.txt",
-					fileToDataSource("./src/main/resources/", "attach.txt"));
-			return "DONE";
+					"attach."+type,
+					"./src/main/resources/attach."+type)) {
+
+				return "DONE: E-mail sent successful";
+
+			} else {
+				return "ERROR: E-Mail Attach not sent";
+			}
+
 		} catch (RuntimeException re) {
 			System.out.println(re.getMessage());
-			return "ERROR";
+			return "ERROR: Exception";
 		}
 	}
 }
